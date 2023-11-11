@@ -1,751 +1,133 @@
-@extends('backend.layouts.app')
-
-@section('content')
-
+<!DOCTYPE HTML>
+<html lang="en">
 
 
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-account-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jul 2023 14:54:22 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>Evara Dashboard</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/theme/favicon.svg">
+    <!-- Template CSS -->
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+</head>
 
-<!--**********************************
-    Sidebar start
-***********************************-->
-    <div class="dlabnav">
-    @include('backend.layouts.sidbar')
-</div>
-<!--**********************************
-    Sidebar end
-***********************************-->
-
-<!--**********************************
-    Content body start
-***********************************-->
-<div class="content-body">
-    <!-- row -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xl-6">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row separate-row">
-                                    <div class="col-sm-6">
-                                        <div class="job-icon pb-4 d-flex justify-content-between">
-                                            <div>
-                                                <div class="d-flex align-items-center mb-1">
-                                                    <h2 class="mb-0 lh-1">342</h2>
-                                                    <span class="text-success ms-3">+0.5 %</span>
-                                                </div>
-                                                <span class="fs-14 d-block mb-2">Interview Schedules</span>
-                                            </div>
-                                            <div id="NewCustomers"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="job-icon pb-4 pt-4 pt-sm-0 d-flex justify-content-between">
-                                            <div>
-                                                <div class="d-flex align-items-center mb-1">
-                                                    <h2 class="mb-0 lh-1">984</h2>
-                                                </div>
-                                                <span class="fs-14 d-block mb-2">Application Sent</span>
-                                            </div>
-                                            <div id="NewCustomers1"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="job-icon pt-4 pb-sm-0 pb-4 pe-3 d-flex justify-content-between">
-                                            <div>
-                                                <div class="d-flex align-items-center mb-1">
-                                                    <h2 class="mb-0 lh-1">1,567k</h2>
-                                                    <span class="text-danger ms-3">-2 % </span>
-                                                </div>
-                                                <span class="fs-14 d-block mb-2">Profile Viewed</span>
-                                            </div>
-                                            <div id="NewCustomers2"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="job-icon pt-4  d-flex justify-content-between">
-                                            <div>
-                                                <div class="d-flex align-items-center mb-1">
-                                                    <h2 class="mb-0 lh-1">437</h2>
-                                                </div>
-                                                <span class="fs-14 d-block mb-2">Unread Messages</span>
-                                            </div>
-                                            <div id="NewCustomers3"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+<body>
+    <main>
+        <header class="main-header style-2 navbar">
+            <div class="col-brand">
+                <a href="index.html" class="brand-wrap">
+                    <img src="assets/imgs/theme/logo.svg" class="logo" alt="Evara Dashboard">
+                </a>
+            </div>
+            <div class="col-nav">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon" href="#">
+                            <i class="material-icons md-notifications animation-shake"></i>
+                            <span class="badge rounded-pill">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon darkmode" href="#"> <i class="material-icons md-nights_stay"></i> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="requestfullscreen nav-link btn-icon"><i class="material-icons md-cast"></i></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownLanguage" aria-expanded="false"><i class="material-icons md-public"></i></a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownLanguage">
+                            <a class="dropdown-item text-brand" href="#"><img src="assets/imgs/theme/flag-us.png" alt="English">English</a>
+                            <a class="dropdown-item" href="#"><img src="assets/imgs/theme/flag-fr.png" alt="Français">Français</a>
+                            <a class="dropdown-item" href="#"><img src="assets/imgs/theme/flag-jp.png" alt="Français">日本語</a>
+                            <a class="dropdown-item" href="#"><img src="assets/imgs/theme/flag-cn.png" alt="Français">中国人</a>
                         </div>
-                    </div>
-                    <div class="col-xl-12">
-                        <div class="card "  id="user-activity">
-                            <div class="card-header border-0 pb-0 flex-wrap">
-                                <h4 class="fs-20 mb-0">Vacany Start</h4>
-                                <div class="card-action coin-tabs mt-3 mt-sm-0">
-                                    <ul class="nav nav-tabs" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link " data-bs-toggle="tab" href="#Daily" role="tab">Daily</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link " data-bs-toggle="tab" href="#Daily" role="tab" >Weekly</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="#Daily" role="tab" >Monthly</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="pb-4 d-flex flex-wrap">
-                                    <span class="d-flex align-items-center">
-                                        <svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
-                                            <rect  width="13" height="13" rx="6.5" fill="#35c556"/>
-                                        </svg>
-                                        Application Sent
-                                    </span>
-                                    <span class="application d-flex align-items-center">
-                                        <svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
-                                            <rect  width="13" height="13" rx="6.5" fill="#3f4cfe"/>
-                                        </svg>
-
-                                        Interviews
-                                    </span>
-                                    <span class="application d-flex align-items-center">
-                                        <svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
-                                            <rect  width="13" height="13" rx="6.5" fill="#f34040"/>
-                                        </svg>
-
-                                        Rejected
-                                    </span>
-                                </div>
-                                <div class="tab-content">
-                                    <div class="tab-pane fade show active" id="Daily">
-                                        <canvas id="activity" height="115"></canvas>
-                                    </div>
-                                </div>
-                            </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="assets/imgs/people/avatar2.jpg" alt="User"></a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
+                            <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i>Edit Profile</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Account Settings</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-account_balance_wallet"></i>Wallet</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-receipt"></i>Billing</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-help_outline"></i>Help center</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="#"><i class="material-icons md-exit_to_app"></i>Logout</a>
                         </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section class="content-main mt-80 mb-80">
+            <div class="card mx-auto card-login">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">Create an Account</h4>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input class="form-control" placeholder="Your email" type="text">
+                        </div> <!-- form-group// -->
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <div class="row gx-2">
+                                <div class="col-4"> <input class="form-control" value="+998" type="text"> </div>
+                                <div class="col-8"> <input class="form-control" placeholder="Phone" type="text"> </div>
+                            </div>
+                        </div> <!-- form-group// -->
+                        <div class="mb-3">
+                            <label class="form-label">Create password</label>
+                            <input class="form-control" placeholder="Password" type="password">
+                        </div> <!-- form-group// -->
+                        <div class="mb-3">
+                            <p class="small text-center text-muted">By signing up, you confirm that you’ve read and accepted our User Notice and Privacy Policy.</p>
+                        </div> <!-- form-group  .// -->
+                        <div class="mb-4">
+                            <button type="submit" class="btn btn-primary w-100"> Login </button>
+                        </div> <!-- form-group// -->
+                    </form>
+                    <p class="text-center small text-muted mb-15">or sign up with</p>
+                    <div class="d-flex gap-2 mb-4">
+                        <a href="#" class="w-50 btn btn-light font-sm">
+                            <svg aria-hidden="true" class="icon-svg" style="vertical-align: bottom; margin-top:-4px;" width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 002.38-5.88c0-.57-.05-.66-.15-1.18z" fill="#4285F4"></path>
+                                <path d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 01-7.18-2.54H1.83v2.07A8 8 0 008.98 17z" fill="#34A853"></path>
+                                <path d="M4.5 10.52a4.8 4.8 0 010-3.04V5.41H1.83a8 8 0 000 7.18l2.67-2.07z" fill="#FBBC05"></path>
+                                <path d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 001.83 5.4L4.5 7.49a4.77 4.77 0 014.48-3.3z" fill="#EA4335"></path>
+                            </svg> Google
+                        </a>
+                        <a href="#" class="w-50 btn btn-light font-sm">
+                            <svg aria-hidden="true" class="icon-svg" width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M3 1a2 2 0 00-2 2v12c0 1.1.9 2 2 2h12a2 2 0 002-2V3a2 2 0 00-2-2H3zm6.55 16v-6.2H7.46V8.4h2.09V6.61c0-2.07 1.26-3.2 3.1-3.2.88 0 1.64.07 1.87.1v2.16h-1.29c-1 0-1.19.48-1.19 1.18V8.4h2.39l-.31 2.42h-2.08V17h-2.5z" fill="#4167B2"></path>
+                            </svg> Facebook
+                        </a>
                     </div>
-                    <div class="col-xl-12">
-                        <div class="card" id="user-activity1">
-                            <div class="card-header border-0 pb-0">
-                                <h4 class="fs-20 mb-0">Chart</h4>
-                                <div class="card-action coin-tabs  mt-0">
-                                    <ul class="nav nav-tabs" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link " data-bs-toggle="tab" href="#Daily1" role="tab">Daily</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link " data-bs-toggle="tab" href="#Daily1" role="tab" >Weekly</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="#Daily1" role="tab" >Monthly</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <span class="me-sm-5 me-3 font-w500">
-                                    <svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
-                                        <rect  width="13" height="13" fill="#f73a0b"/>
-                                    </svg>
-                                    Delivered
-                                </span>
-                                <span class="fs-16 font-w600 me-5">239 <small class="text-success fs-12 font-w400">+0.4%</small></span>
-                                <span class="ms-sm-5 ms-3 font-w500">
-                                    <svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
-                                        <rect  width="13" height="13" fill="#6e6e6e"/>
-                                    </svg>
-                                    Expense
-                                </span>
-                                <span class="fs-16 font-w600">239</span>
-                                <div class="tab-content mt-5" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="monthly1">
-                                        <canvas id="activity1" class="chartjs"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header border-0 pb-0">
-                                <h4 class="fs-20 mb-1">Featured Companies</h4>
-                                <div class="dropdown">
-                                    <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        </svg>
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">Edit</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body pt-3 loadmore-content dlab-scroll height370 " id="scroll-y">
-                                <div class="row " id="FeaturedCompaniesContent">
-                                    <div class="col-xl-6 col-sm-6 mt-4 ">
-                                        <div class="d-flex align-items-center">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                        <g  transform="translate(-457 -443)">
-                                                        <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                        <g  transform="translate(457 443)">
-                                                            <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#2769ee"/>
-                                                            <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                            <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                        </g>
-                                                        </g>
-                                                </svg>
-                                            </span>
-                                            <div class="ms-3 featured">
-                                                <h4 class="mb-1">Kleon Team</h4>
-                                                <span>Desgin Team Agency</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 mt-4 col-sm-6">
-                                        <div class="d-flex align-items-center">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                        <g  transform="translate(-457 -443)">
-                                                        <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                        <g  transform="translate(457 443)">
-                                                            <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#7630d2"/>
-                                                            <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                            <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                        </g>
-                                                        </g>
-                                                </svg>
-                                            </span>
-                                            <div class="ms-3 featured">
-                                                <h4 class="mb-1">Ziro Studios Inc.</h4>
-                                                <span>Desgin Team Agency</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6  col-sm-6 mt-4">
-                                        <div class="d-flex align-items-center">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                        <g  transform="translate(-457 -443)">
-                                                        <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                        <g  transform="translate(457 443)">
-                                                            <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#b848ef"/>
-                                                            <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                            <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                        </g>
-                                                        </g>
-                                                </svg>
-                                            </span>
-                                            <div class="ms-3 featured">
-                                                <h4 class="mb-1">Qerza</h4>
-                                                <span>Desgin Team Agency</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-sm-6 mt-4">
-                                        <div class="d-flex align-items-center">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                        <g  transform="translate(-457 -443)">
-                                                        <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                        <g  transform="translate(457 443)">
-                                                            <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#7e1d74"/>
-                                                            <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                            <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                        </g>
-                                                        </g>
-                                                </svg>
-                                            </span>
-                                            <div class="ms-3 featured">
-                                                <h4 class="mb-1">Kripton Studios</h4>
-                                                <span>Desgin Team Agency</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-sm-6 mt-4">
-                                        <div class="d-flex align-items-center">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                        <g  transform="translate(-457 -443)">
-                                                        <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                        <g  transform="translate(457 443)">
-                                                            <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#0411c2"/>
-                                                            <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                            <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                        </g>
-                                                        </g>
-                                                </svg>
-                                            </span>
-                                            <div class="ms-3 featured">
-                                                <h4 class="mb-1">Omah Ku Inc.</h4>
-                                                <span>Desgin Team Agency</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-sm-6 mt-4">
-                                        <div class="d-flex align-items-center">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                        <g  transform="translate(-457 -443)">
-                                                        <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                        <g  transform="translate(457 443)">
-                                                            <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#378a82"/>
-                                                            <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                            <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                        </g>
-                                                        </g>
-                                                </svg>
-                                            </span>
-                                            <div class="ms-3 featured">
-                                                <h4 class="fs-20 mb-1">Ventic</h4>
-                                                <span>Desgin Team Agency</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-sm-6 mt-4">
-                                        <div class="d-flex align-items-center">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                        <g  transform="translate(-457 -443)">
-                                                        <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                        <g  transform="translate(457 443)">
-                                                            <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#175baa"/>
-                                                            <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                            <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                        </g>
-                                                        </g>
-                                                </svg>
-                                            </span>
-                                            <div class="ms-3 featured">
-                                                <h4 class="mb-1">Sakola</h4>
-                                                <span>Desgin Team Agency</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-sm-6 mt-4">
-                                        <div class="d-flex align-items-center">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                    <g  transform="translate(-457 -443)">
-                                                    <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                    <g  transform="translate(457 443)">
-                                                        <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#eeb927"/>
-                                                        <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                        <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                    </g>
-                                                    </g>
-                                                </svg>
-                                            </span>
-                                            <div class="ms-3 featured">
-                                                <h4 class="mb-1">Uena Foods</h4>
-                                                <span>Desgin Team Agency</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer border-0 m-auto">
-                                <a href="javascript:void(0);" class="btn btn-outline-primary m-auto dlab-load-more" id="FeaturedCompanies" rel="ajax/featuredcompanies.html">View more</a>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="text-center mb-2">Already have an account? <a href="#">Sign in now</a></p>
                 </div>
             </div>
-            <div class="col-xl-6">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row ">
-                                    <div class="col-xl-8 col-xxl-7 col-sm-7">
-                                        <div class="update-profile d-flex">
-                                            <img src="{{ asset('backend') }}/images/profile/pic1.jpg" alt="">
-                                            <div class="ms-4">
-                                                <h3 class="fs-24 font-w600 mb-0">Franklin Jr</h3>
-                                                <span class="text-primary d-block mb-4">UI / UX Designer</span>
-                                                <span><i class="fas fa-map-marker-alt me-1"></i>Medan, Sumatera Utara - ID</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-5 col-sm-5 sm-mt-auto mt-3 text-sm-end">
-                                        <a href="javascript:void(0);" class="btn btn-primary">Update Profile</a>
-                                    </div>
-                                </div>
-                                <div class="row mt-4 align-items-center">
-                                    <h4 class="fs-20 mb-3">Skills</h4>
-                                    <div class="col-xl-6 col-sm-6">
-                                        <div class="progress default-progress">
-                                            <div class="progress-bar bg-green progress-animated" style="width: 90%; height:13px;" role="progressbar">
-                                                <span class="sr-only">90% Complete</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-end mt-2 pb-4 justify-content-between">
-                                            <span class="fs-14 font-w500">Figma</span>
-                                            <span class="fs-16"><span class="text-black pe-2"></span>90%</span>
-                                        </div>
-                                        <div class="progress default-progress">
-                                            <div class="progress-bar bg-info progress-animated" style="width: 68%; height:13px;" role="progressbar">
-                                                <span class="sr-only">45% Complete</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-end mt-2 pb-4 justify-content-between">
-                                            <span class="fs-14 font-w500">Adobe XD</span>
-                                            <span class="fs-16"><span class="text-black pe-2"></span>68%</span>
-                                        </div>
-                                        <div class="progress default-progress">
-                                            <div class="progress-bar bg-blue progress-animated" style="width: 85%; height:13px;" role="progressbar">
-                                                <span class="sr-only">85% Complete</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-end mt-2 pb-4 justify-content-between">
-                                            <span class="fs-14 font-w500">Photoshop</span>
-                                            <span class="fs-16"><span class="text-black pe-2"></span>85%</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-sm-6">
-                                        <div id="pieChart1"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header border-0 pb-0">
-                                <h4 class="fs-20 mb-0">Recent Activity</h4>
-                                <div>
-                                    <select class="default-select dashboard-select">
-                                        <option data-display="Newest">Newest</option>
-                                            <option value="1">latest</option>
+        </section>
+        <footer class="main-footer text-center">
+            <p class="font-xs">
+                <script>
+                document.write(new Date().getFullYear())
+                </script> ©, Evara - HTML Ecommerce Template .
+            </p>
+            <p class="font-xs mb-30">All rights reserved</p>
+        </footer>
+    </main>
+    <script src="assets/js/vendors/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendors/jquery.fullscreen.min.js"></script>
+    <!-- Main Script -->
+    <script src="assets/js/main.js" type="text/javascript"></script>
+</body>
 
-                                        <option value="2">oldest</option>
-                                    </select>
-                                    <div class="dropdown custom-dropdown mb-0">
-                                        <div class="btn sharp tp-btn dark-btn" data-bs-toggle="dropdown">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="#342E59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="#342E59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="#342E59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </div>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="javascript:void(0);">Details</a>
-                                            <a class="dropdown-item text-danger" href="javascript:void(0);">Cancel</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body loadmore-content dlab-scroll height370 recent-activity-wrapper" id="RecentActivityContent">
-                                <div class="d-flex recent-activity">
-                                    <span class="me-3 activity">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
-                                            <circle  cx="8.5" cy="8.5" r="8.5" fill="#f93a0b"/>
-                                        </svg>
-                                    </span>
-                                    <div class="d-flex align-items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                            <g  transform="translate(-457 -443)">
-                                            <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                            <g  transform="translate(457 443)">
-                                                <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#2769ee"/>
-                                                <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                            </g>
-                                            </g>
-                                        </svg>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">Bubles Studios have 5 available positions for you</h5>
-                                            <span>8min ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex recent-activity">
-                                    <span class="me-3 activity">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
-                                            <circle  cx="8.5" cy="8.5" r="8.5" fill="#d9d9d9"/>
-                                        </svg>
-                                    </span>
-                                    <div class="d-flex align-items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                <g  transform="translate(-457 -443)">
-                                                <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                <g  transform="translate(457 443)">
-                                                    <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#eeac27"/>
-                                                    <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                    <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                </g>
-                                                </g>
-                                        </svg>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">Elextra Studios has invited you to interview meeting tomorrow</h5>
-                                            <span>8min ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex recent-activity">
-                                    <span class="me-3 activity">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
-                                            <circle  cx="8.5" cy="8.5" r="8.5" fill="#d9d9d9"/>
-                                        </svg>
-                                    </span>
-                                    <div class="d-flex align-items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                <g  transform="translate(-457 -443)">
-                                                <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                <g  transform="translate(457 443)">
-                                                    <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#22bc32"/>
-                                                    <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                    <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                </g>
-                                                </g>
-                                        </svg>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">Highspeed Design Team have 2 available positions for you</h5>
-                                            <span>8min ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex recent-activity">
-                                    <span class="me-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
-                                            <circle  cx="8.5" cy="8.5" r="8.5" fill="#d9d9d9"/>
-                                        </svg>
-                                    </span>
-                                    <div class="d-flex align-items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                <g  transform="translate(-457 -443)">
-                                                <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                <g  transform="translate(457 443)">
-                                                    <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#9933cb"/>
-                                                    <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                    <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                </g>
-                                                </g>
-                                        </svg>
-                                    <div class="ms-3">
-                                        <h5 class="mb-1">Kleon Studios have 5 available positions for you</h5>
-                                        <span>8min ago</span>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex recent-activity">
-                                    <span class="me-3 activity">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
-                                            <circle  cx="8.5" cy="8.5" r="8.5" fill="#d9d9d9"/>
-                                        </svg>
-                                    </span>
-                                    <div class="d-flex align-items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                <g  transform="translate(-457 -443)">
-                                                <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                <g  transform="translate(457 443)">
-                                                    <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#eeac27"/>
-                                                    <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                    <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                </g>
-                                                </g>
-                                        </svg>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">Elextra Studios has invited you to interview meeting tomorrow</h5>
-                                            <span>8min ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer border-0 text-center">
-                                <a href="javascript:void(0);" class="btn btn-outline-primary m-auto dlab-load-more" id="RecentActivity" rel="ajax/recentactivity.html">View more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header pb-0 border-0 flex-wrap">
-                                <h4 class="fs-20 mb-0 ">Available Jobs For You</h4>
-                                <div>
-                                    <select class="default-select dashboard-select">
-                                        <option data-display="Newest">Newest</option>
 
-                                        <option value="2">oldest</option>
-                                    </select>
-                                    <div class="dropdown custom-dropdown mb-0">
-                                        <div class="btn sharp tp-btn dark-btn" data-bs-toggle="dropdown">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="#342E59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="#342E59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="#342E59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </div>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="javascript:void(0);">Details</a>
-                                            <a class="dropdown-item text-danger" href="javascript:void(0);">Cancel</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="owl-carousel owl-carousel owl-loaded front-view-slider ">
-                                    <div class="items">
-                                        <div class="jobs">
-                                            <div class="text-center">
-                                                <span>
-                                                    <svg class="mb-2" xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                        <g  transform="translate(-457 -443)">
-                                                        <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                        <g  transform="translate(457 443)">
-                                                            <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#2769ee"/>
-                                                            <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                            <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                        </g>
-                                                        </g>
-                                                    </svg>
-                                                </span>
-                                                <h4 class="mb-0">UI Designer</h4>
-                                                <span class="text-primary mb-3 d-block">Bubbles Studios</span>
-                                            </div>
-                                            <div class="text-center">
-                                            <span class="d-block mb-1"><i class="fas fa-map-marker-alt me-2"></i>Manchester, England</span>
-                                                <span><i class="fas fa-comments-dollar me-2"></i>$ 2,000 - $ 2,500</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="items">
-                                        <div class="jobs">
-                                            <div class="text-center">
-                                                <span>
-                                                    <svg class="mb-2" xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                        <g  transform="translate(-457 -443)">
-                                                        <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                        <g  transform="translate(457 443)">
-                                                            <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#ee27c0"/>
-                                                            <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                            <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                        </g>
-                                                        </g>
-                                                    </svg>
-                                                </span>
-                                                <h4 class="mb-0">Researcher</h4>
-                                                <span class="text-primary mb-3 d-block">Kleon Studios</span>
-                                            </div>
-                                            <div class="text-center">
-                                            <span class="d-block mb-1"><i class="fas fa-map-marker-alt me-2"></i>Manchester, England</span>
-                                                <span><i class="fas fa-comments-dollar me-2"></i>$ 2,000 - $ 2,500</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="items">
-                                        <div class="jobs">
-                                            <div class="text-center">
-                                                <span>
-                                                    <svg class="mb-2" xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                        <g  transform="translate(-457 -443)">
-                                                        <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                        <g  transform="translate(457 443)">
-                                                            <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#2db532"/>
-                                                            <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                            <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                        </g>
-                                                        </g>
-                                                    </svg>
-                                                </span>
-                                                <h4 class="mb-0">Frontend</h4>
-                                                <span class="text-primary mb-3 d-block">Green Comp.</span>
-                                            </div>
-                                            <div class="text-center">
-                                            <span class="d-block mb-1"><i class="fas fa-map-marker-alt me-2"></i>Manchester, England</span>
-                                                <span><i class="fas fa-comments-dollar me-2"></i>$ 2,000 - $ 2,500</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="items">
-                                        <div class="jobs">
-                                            <div class="text-center">
-                                                <span>
-                                                    <svg class="mb-2" xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                        <g  transform="translate(-457 -443)">
-                                                        <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                        <g  transform="translate(457 443)">
-                                                            <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#2769ee"/>
-                                                            <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                            <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                        </g>
-                                                        </g>
-                                                    </svg>
-                                                </span>
-                                                <h4 class="mb-0">UI Designer</h4>
-                                                <span class="text-primary mb-3 d-block">Bubbles Studios</span>
-                                            </div>
-                                            <div class="text-center">
-                                            <span class="d-block mb-1"><i class="fas fa-map-marker-alt me-2"></i>Manchester, England</span>
-                                                <span><i class="fas fa-comments-dollar me-2"></i>$ 2,000 - $ 2,500</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="items">
-                                        <div class="jobs">
-                                            <div class="text-center">
-                                                <span>
-                                                    <svg class="mb-2" xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                        <g  transform="translate(-457 -443)">
-                                                        <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                        <g  transform="translate(457 443)">
-                                                            <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#ee27c0"/>
-                                                            <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                            <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                        </g>
-                                                        </g>
-                                                    </svg>
-                                                </span>
-                                                <h4 class="mb-0">Researcher</h4>
-                                                <span class="text-primary mb-3 d-block">Kleon Studios</span>
-                                            </div>
-                                            <div class="text-center">
-                                            <span class="d-block mb-1"><i class="fas fa-map-marker-alt me-2"></i>Manchester, England</span>
-                                                <span><i class="fas fa-comments-dollar me-2"></i>$ 2,000 - $ 2,500</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="items">
-                                        <div class="jobs">
-                                            <div class="text-center">
-                                                <span>
-                                                    <svg class="mb-2" xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71">
-                                                        <g  transform="translate(-457 -443)">
-                                                        <rect  width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"/>
-                                                        <g  transform="translate(457 443)">
-                                                            <rect  data-name="placeholder" width="71" height="71" rx="12" fill="#2db532"/>
-                                                            <circle  data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"/>
-                                                            <circle  data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"/>
-                                                        </g>
-                                                        </g>
-                                                    </svg>
-                                                </span>
-                                                <h4 class="mb-0">Frontend</h4>
-                                                <span class="text-primary mb-3 d-block">Green Comp.</span>
-                                            </div>
-                                            <div class="text-center">
-                                            <span class="d-block mb-1"><i class="fas fa-map-marker-alt me-2"></i>Manchester, England</span>
-                                                <span><i class="fas fa-comments-dollar me-2"></i>$ 2,000 - $ 2,500</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<!--**********************************
-    Content body end
-***********************************-->
-@endsection
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-account-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jul 2023 14:54:22 GMT -->
+</html>

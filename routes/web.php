@@ -29,17 +29,18 @@ Route::get('/', [FrontendController::class, 'home'])->name('index');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Admin
+Route::middleware('admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::resource('/country', CountryController::class);
+});
 
 Route::get('/admin/register', [AdminController::class, 'admin_register'])->name('admin.register');
 Route::get('/admin/login', [AdminController::class, 'admin_login'])->name('admin.login');
 Route::post('/adminlogin', [AdminController::class, 'adminlogin'])->name('adminlogin');
 
-Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
-Route::post('admin/store', [AdminController::class, 'admin_store'])->name('admin.store');
+Route::post('/admin/store', [AdminController::class, 'admin_store'])->name('admin.store');
 
 
 // Route::get('/create/admin', [HomeController::class, 'create_admin'])->name('create.admin');
 // Route::post('/create/role/admin', [HomeController::class, 'create_role_admin'])->name('create.role.admin');
-
-
-Route::resource('/country', CountryController::class);

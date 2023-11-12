@@ -34,6 +34,9 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'banner_title' => 'required|unique:banners|max:255',
+        ]);
         Photo::upload($request->banner_image, 'files/banner', $request->banner_title);
         Banner::insert([
             'banner_category' =>$request->banner_category,
@@ -69,6 +72,9 @@ class BannerController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'banner_title' => 'required|max:255',
+        ]);
         Photo::upload($request->banner_image, 'files/banner', $request->banner_title);
         Banner::where('id', $id)->update([
             'banner_category' =>$request->banner_category,

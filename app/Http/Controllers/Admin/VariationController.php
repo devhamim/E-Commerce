@@ -33,6 +33,9 @@ class VariationController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'variation_name' => 'required',
+        ]);
         Variation::insert([
             'category_id' => $request->category_id,
             'variation_name' => $request->variation_name,
@@ -64,6 +67,9 @@ class VariationController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'variation_name' => 'required',
+        ]);
         Variation::where('id', $id)->update([
             'category_id' => $request->category_id,
             'variation_name' => $request->variation_name,

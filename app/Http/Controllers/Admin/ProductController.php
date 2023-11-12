@@ -34,6 +34,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'product_name' => 'required',
+        ]);
         Photo::upload($request->product_image, 'files/product', $request->product_name);
         Product::insert([
             'category_id' =>$request->category_id,
@@ -71,6 +74,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'product_name' => 'required',
+        ]);
         Photo::upload($request->product_image, 'files/product', $request->product_name);
         Product::where('id', $id)->update([
             'category_id' =>$request->category_id,

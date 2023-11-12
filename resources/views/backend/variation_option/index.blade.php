@@ -50,15 +50,7 @@
                             <td><b>{{ $request->variation->variation_name }}</b></td>
                             <td class="text-end">
                                 <a href="{{ route('variation_option.edit', $request->id) }}" class="btn btn-md rounded font-sm">Edit</a>
-                                <a href="{{ route('category.destroy', $request->id) }}" class="btn btn-md bg-warning rounded font-sm">Delete</a>
-                                {{-- <div class="dropdown">
-                                    <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">View detail</a>
-                                        <a class="dropdown-item" href="#">Edit info</a>
-                                        <a class="dropdown-item text-danger" href="#">Delete</a>
-                                    </div>
-                                </div> <!-- dropdown //end --> --}}
+                                <a href="" class="btn btn-md bg-warning rounded font-sm">Delete</a>
                             </td>
                         </tr>
                         @endforeach

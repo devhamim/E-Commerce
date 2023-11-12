@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class VariationOption extends Model
 {
     use HasFactory;
+    function variation(){
+        return $this->belongsTo(Variation::class, 'variation_id');
+    }
 }

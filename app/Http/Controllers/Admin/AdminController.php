@@ -10,6 +10,11 @@ use Photo;
 
 class AdminController extends Controller
 {
+    public function index()
+    {
+        return view('backend.index');
+    }
+    
     public function dashboard()
     {
         return view('backend.home.home');
@@ -71,5 +76,24 @@ class AdminController extends Controller
                 ->route('dashboard')
                 ->with('Welcome! Your account has been successfully created!');
         }
+    }
+
+    // create admin for role 
+    function create_admin(){
+        $super_admin = Admin::count();
+        return view('backend.admin.create_admin', compact('super_admin'));
+    }
+    function create_role_admin(Request $request){
+        Photo::upload($request->profile, 'files/profile', $request->name);
+        
+        Admin::insert([
+            'name' =>$request->name,
+            'profile' =>Photo::$name,
+            'email' => $request->email,
+            'number' => $request->number,
+            'role' => $request->role,
+            'password' => bcrypt($request->password),
+        ]);
+        return back();
     }
 }

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Variation extends Model
 {
     use HasFactory;
+    function category(){
+        return $this->belongsTo(ProductCategory::class, 'category_id');
+    }
 }

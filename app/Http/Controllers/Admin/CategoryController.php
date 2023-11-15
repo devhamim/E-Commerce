@@ -33,12 +33,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'category_name' => 'required|unique:product_categories|max:255',
+        ]);
         Photo::upload($request->category_image, 'files/category', $request->category_name);
-        // Photo::upload($request->category_icon, 'files/category', $request->category_name);
         ProductCategory::insert([
             'category_name' =>$request->category_name,
             'category_image' =>Photo::$name,
-            // 'category_icon' =>Photo::$name,
             'seo_title' =>$request->seo_title,
             'seo_description' =>$request->seo_description,
             'seo_tags' =>$request->seo_tags,
@@ -69,7 +70,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
+        $request->validate([
+            'category_name' => 'required|unique:product_categories|max:255',
+        ]);
             Photo::upload($request->category_image, 'files/category', $request->category_name);
             ProductCategory::where('id', $id)->update([
             'category_name' =>$request->category_name,

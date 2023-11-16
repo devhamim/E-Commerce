@@ -43,6 +43,15 @@
             </li>
             <li class="menu-item has-submenu">
                 <a class="menu-link" href="page-sellers-cards.html"> <i class="icon material-icons md-store"></i>
+                    <span class="text">Campaign Product</span>
+                </a>
+                <div class="submenu">
+                    <a href="{{ route('campaign-product.index') }}">Campaign Product List</a>
+                    <a href="{{ route('campaign-product.create') }}">Create Campaign Product</a>
+                </div>
+            </li>
+            <li class="menu-item has-submenu">
+                <a class="menu-link" href="page-sellers-cards.html"> <i class="icon material-icons md-store"></i>
                     <span class="text">Variation</span>
                 </a>
                 <div class="submenu">
@@ -69,13 +78,21 @@
                 </div>
             </li>
             <li class="menu-item has-submenu">
-                <a class="menu-link" href="page-transactions-1.html"> <i class="icon material-icons md-monetization_on"></i>
-                    <span class="text">Transactions</span>
+                <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>
+                    <span class="text">Product Item</span>
                 </a>
                 <div class="submenu">
-                    <a href="page-transactions-1.html">Transaction 1</a>
-                    <a href="page-transactions-2.html">Transaction 2</a>
-                    <a href="page-transactions-details.html">Transaction Details</a>
+                    <a href="{{ route('product-item.index') }}">Product Item List</a>
+                    <a href="{{ route('product-item.create') }}">Add product Item</a>
+                </div>
+            </li>
+            <li class="menu-item has-submenu">
+                <a class="menu-link" href="page-transactions-1.html"> <i class="icon material-icons md-monetization_on"></i>
+                    <span class="text">Shipping Methods</span>
+                </a>
+                <div class="submenu">
+                    <a href="{{ route('shipping-methods.index') }}">Shipping Methods List</a>
+                    <a href="{{ route('shipping-methods.create') }}">Create Shipping Methods</a>
                 </div>
             </li>
             <li class="menu-item has-submenu">

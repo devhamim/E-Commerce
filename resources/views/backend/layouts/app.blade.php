@@ -1,8 +1,5 @@
 <!DOCTYPE HTML>
 <html lang="en">
-
-
-<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-account-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jul 2023 14:54:22 GMT -->
 <head>
     <meta charset="utf-8">
     <title>Evara Dashboard</title>
@@ -39,7 +36,4 @@
     <!-- Main Script -->
     <script src="{{ asset('backend') }}/assets/js/main.js" type="text/javascript"></script>
 </body>
-
-
-<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-account-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jul 2023 14:54:22 GMT -->
 </html>

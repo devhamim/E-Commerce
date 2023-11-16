@@ -4,9 +4,12 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CampaignController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ShippingMethodsController;
+use App\Http\Controllers\Admin\CampaingProductController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductItemController;
 use App\Http\Controllers\Admin\VariationController;
 use App\Http\Controllers\Admin\VariationOptionController;
 use App\Http\Controllers\FrontendController;
@@ -46,7 +49,11 @@ Route::middleware('admin')->group(function () {
     Route::resource('/campaign', CampaignController::class);
     Route::resource('/variation', VariationController::class);
     Route::resource('/product', ProductController::class);
+    Route::resource('/product-item', ProductItemController::class);
     Route::resource('/variation_option', VariationOptionController::class);
+    Route::resource('/variation_option', VariationOptionController::class);
+    Route::resource('/shipping-methods', ShippingMethodsController::class);
+    Route::resource('/campaign-product', CampaingProductController::class);
 });
 
 Route::get('/admin/register', [AdminController::class, 'admin_register'])->name('admin.register');

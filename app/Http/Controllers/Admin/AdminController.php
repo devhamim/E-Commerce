@@ -42,7 +42,7 @@ class AdminController extends Controller
             return back();
         }
     }
-
+    
     //Admin Link
     function admin_register()
     {

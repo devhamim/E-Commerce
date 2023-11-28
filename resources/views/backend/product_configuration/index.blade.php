@@ -3,7 +3,7 @@
 <section class="content-main">
     <div class="content-header">
         <div>
-            <h2 class="content-title card-title">Country List </h2>
+            <h2 class="content-title card-title">Product Configuration List </h2>
             {{-- <p>Here Your All Catego.</p> --}}
         </div>
         <div>
@@ -38,17 +38,19 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Country Name</th>
+                            <th scope="col">Product Item</th>
+                            <th scope="col">Variation Option</th>
                             <th scope="col" class="text-end"> Action </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($countrys as $key => $country)
+                        @foreach($ProductConfiguration as $key => $Configuration)
                         <tr>
-                            <td><b>{{ $country->country_name }}</b></td>
+                            <td><b>{{ $Configuration->rel_to_productitem->rel_to_product->product_name }}</b></td>
+                            <td><b>{{ $Configuration->rel_to_variationoption->option_name }} </b></td>
                             <td class="text-end">
-                                <a href="{{ route('country.edit', $country->id) }}" class="btn btn-md rounded font-sm">Edit</a>
-                                <a href="{{ route('country.destroy', $country->id) }}" class="btn btn-md bg-warning rounded font-sm">Delete</a>
+                                <a href="{{ route('product-configuration.edit', $Configuration->id) }}" class="btn btn-md rounded font-sm">Edit</a>
+                                <a href="{{ route('product-configuration.destroy', $Configuration->id) }}" class="btn btn-md bg-warning rounded font-sm">Delete</a>
                             </td>
                         </tr>
                         @endforeach

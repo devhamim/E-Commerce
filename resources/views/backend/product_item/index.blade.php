@@ -57,6 +57,7 @@
                                 <img style="width: 50px; height: 50px;" src="{{ asset('files/productitem/'. $product->product_image) }}" alt="">
                             </td>
                             <td class="text-end">
+                                <a href="{{ route('product.inventory', $product->id) }}" class="btn btn-md bg-primary rounded font-sm">Inventory</a>
                                 <a href="{{ route('product-item.edit', $product->id) }}" class="btn btn-md rounded font-sm">Edit</a>
                                 <a href="" class="btn btn-md bg-warning rounded font-sm">Delete</a>
                             </td>

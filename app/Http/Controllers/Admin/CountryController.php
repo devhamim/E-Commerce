@@ -14,7 +14,8 @@ class CountryController extends Controller
      */
     public function index()
     {
-        return view('backend.country.index');
+        $countrys = Country::all();
+        return view('backend.country.index', compact('countrys'));
     }
 
     /**
@@ -22,7 +23,7 @@ class CountryController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.country.create');
     }
 
     /**
@@ -30,6 +31,9 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'country_name' => 'required|max:255',
+        ]);
         Country::insert([
             'country_name' =>$request->country_name,
             'created_at' =>Carbon::now(),
@@ -50,7 +54,8 @@ class CountryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $countrys = Country::find($id);
+        return view('backend.country.edit', compact('countrys'));
     }
 
     /**
@@ -58,7 +63,14 @@ class CountryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'country_name' => 'required|max:255',
+        ]);
+        Country::where('id', $id)->update([
+            'country_name' =>$request->country_name,
+            'created_at'=>Carbon::now(),
+        ]);
+        return redirect()->route('country.index')->with('succ', 'Country Updated...');
     }
 
     /**

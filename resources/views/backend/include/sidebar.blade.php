@@ -84,6 +84,16 @@
                 <div class="submenu">
                     <a href="{{ route('product-item.index') }}">Product Item List</a>
                     <a href="{{ route('product-item.create') }}">Add product Item</a>
+                    <a href="{{ route('color-size.index') }}">Color Size</a>
+                </div>
+            </li>
+            <li class="menu-item has-submenu">
+                <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>
+                    <span class="text">Product Configuration</span>
+                </a>
+                <div class="submenu">
+                    <a href="{{ route('product-configuration.index') }}">Product Configuration List</a>
+                    <a href="{{ route('product-configuration.create') }}">Add Configuration Item</a>
                 </div>
             </li>
             <li class="menu-item has-submenu">
@@ -103,6 +113,33 @@
                     <a href="{{ route('create.admin') }}">Create Admin</a>
                     <a href="page-account-register.html">User registration</a>
                     <a href="page-error-404.html">Error 404</a>
+                </div>
+            </li>
+            <li class="menu-item has-submenu">
+                <a class="menu-link" href="#"> <i class="icon material-icons md-person"></i>
+                    <span class="text">Country</span>
+                </a>
+                <div class="submenu">
+                    <a href="{{ route('country.index') }}">Country List</a>
+                    <a href="{{ route('country.create') }}">Create Country</a>
+                </div>
+            </li>
+            <li class="menu-item has-submenu">
+                <a class="menu-link" href="#"> <i class="icon material-icons md-person"></i>
+                    <span class="text">Address</span>
+                </a>
+                <div class="submenu">
+                    <a href="{{ route('address.index') }}">Address List</a>
+                    <a href="{{ route('address.create') }}">Create Address</a>
+                </div>
+            </li>
+            <li class="menu-item has-submenu">
+                <a class="menu-link" href="#"> <i class="icon material-icons md-person"></i>
+                    <span class="text">User address</span>
+                </a>
+                <div class="submenu">
+                    <a href="{{ route('useraddress.index') }}">User Address List</a>
+                    <a href="{{ route('useraddress.create') }}">Create User Address</a>
                 </div>
             </li>
             <li class="menu-item">

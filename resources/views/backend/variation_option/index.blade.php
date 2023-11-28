@@ -47,7 +47,7 @@
                         @foreach($requests as $key => $request)
                         <tr>
                             <td><b>{{ $request->option_name }}</b></td>
-                            <td><b>{{ $request->variation->variation_name }}</b></td>
+                            <td><b>{{ $request->rel_to_variation->variation_name }}</b></td>
                             <td class="text-end">
                                 <a href="{{ route('variation_option.edit', $request->id) }}" class="btn btn-md rounded font-sm">Edit</a>
                                 <a href="" class="btn btn-md bg-warning rounded font-sm">Delete</a>

@@ -3,7 +3,7 @@
 <section class="content-main">
     <div class="content-header">
         <div>
-            <h2 class="content-title card-title">Country List </h2>
+            <h2 class="content-title card-title">Campaign product List </h2>
             {{-- <p>Here Your All Catego.</p> --}}
         </div>
         <div>
@@ -38,17 +38,19 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Country Name</th>
+                            <th scope="col">Campaign</th>
+                            <th scope="col">Product</th>
                             <th scope="col" class="text-end"> Action </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($countrys as $key => $country)
+                        @foreach($Campaign_product as $key => $Campaign)
                         <tr>
-                            <td><b>{{ $country->country_name }}</b></td>
+                            <td><b>{{ $Campaign->rel_to_campaign->campaign_name }}</b></td>
+                            <td><b>{{ $Campaign->rel_to_product->product_name }} </b></td>
                             <td class="text-end">
-                                <a href="{{ route('country.edit', $country->id) }}" class="btn btn-md rounded font-sm">Edit</a>
-                                <a href="{{ route('country.destroy', $country->id) }}" class="btn btn-md bg-warning rounded font-sm">Delete</a>
+                                <a href="{{ route('campaign-product.edit', $Campaign->id) }}" class="btn btn-md rounded font-sm">Edit</a>
+                                <a href="{{ route('campaign-product.destroy', $Campaign->id) }}" class="btn btn-md bg-warning rounded font-sm">Delete</a>
                             </td>
                         </tr>
                         @endforeach

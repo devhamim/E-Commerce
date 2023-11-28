@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "content-hash": "69f1057d47d5ff231c25ac4a3bf837cb",
+
     "packages": [
         {
             "name": "brick/math",
@@ -1254,6 +1255,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+
             "time": "2023-11-01T13:52:17+00:00"
         },
         {
@@ -2052,6 +2054,7 @@
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
                 "source": "https://github.com/Seldaek/monolog/tree/3.5.0"
+
             },
             "funding": [
                 {
@@ -2064,6 +2067,7 @@
                 }
             ],
             "time": "2023-10-27T15:32:31+00:00"
+
         },
         {
             "name": "nesbot/carbon",
@@ -2318,6 +2322,7 @@
                 "source": "https://github.com/nette/utils/tree/v4.0.3"
             },
             "time": "2023-10-29T21:02:13+00:00"
+
         },
         {
             "name": "nikic/php-parser",
@@ -3958,6 +3963,7 @@
                 }
             ],
             "time": "2023-10-29T14:31:45+00:00"
+
         },
         {
             "name": "symfony/mailer",
@@ -5185,6 +5191,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/translation/zipball/30212e7c87dcb79c83f6362b00bde0e0b1213499",
                 "reference": "30212e7c87dcb79c83f6362b00bde0e0b1213499",
+
                 "shasum": ""
             },
             "require": {
@@ -5267,6 +5274,7 @@
                 }
             ],
             "time": "2023-10-28T23:11:45+00:00"
+
         },
         {
             "name": "symfony/translation-contracts",
@@ -5855,6 +5863,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/filp/whoops/zipball/a139776fa3f5985a50b509f2a02ff0f709d2a546",
                 "reference": "a139776fa3f5985a50b509f2a02ff0f709d2a546",
+
                 "shasum": ""
             },
             "require": {
@@ -5977,6 +5986,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/pint/zipball/df105cf8ce7a8f0b8a9425ff45cd281a5448e423",
                 "reference": "df105cf8ce7a8f0b8a9425ff45cd281a5448e423",
+
                 "shasum": ""
             },
             "require": {
@@ -6054,6 +6064,7 @@
             },
             "require-dev": {
                 "orchestra/testbench": "^7.0|^8.0|^9.0",
+
                 "phpstan/phpstan": "^1.10"
             },
             "bin": [
@@ -6780,6 +6791,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/cacd8b9dd224efa8eb28beb69004126c7ca1a1a1",
                 "reference": "cacd8b9dd224efa8eb28beb69004126c7ca1a1a1",
+
                 "shasum": ""
             },
             "require": {

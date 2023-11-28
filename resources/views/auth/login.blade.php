@@ -1,6 +1,7 @@
-{{-- @extends('layouts.app') --}}
 
-{{-- @section('content')
+{{-- @extends('layouts.app')
+
+@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -70,10 +71,10 @@
         </div>
     </div>
 </div>
-@endsection --}}
+@endsection  --}}
 
 
-{{-- @extends('backend.layouts.app')
+@extends('backend.layouts.app')
 @section('content')
 <div class="card mx-auto card-login">
     <div class="card-body">
@@ -107,4 +108,4 @@
         </form>
     </div>
 </div>
-@endsection --}}
+@endsection

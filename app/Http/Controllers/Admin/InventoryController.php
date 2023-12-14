@@ -8,6 +8,7 @@ use App\Models\Inventory;
 use App\Models\Product;
 use App\Models\ProductItem;
 use App\Models\size;
+use App\Models\VariationOption;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -18,15 +19,13 @@ class InventoryController extends Controller
      */
     public function product_inventory($prodact_id)
     {
-        $colors = color::all();
-        $sizes = size::all();
         $prodact_info = ProductItem::find($prodact_id);
         $inventoryes = Inventory::where('prodact_id', $prodact_id)->get();
+        $variationoptions = VariationOption::all();
         return view('backend.inventory.inventory', [
-            'colors'=> $colors,
-            'sizes'=> $sizes,
             'prodact_info'=>$prodact_info,
             'inventoryes'=>$inventoryes,
+            'variationoptions'=>$variationoptions,
         ]);
     }
 
@@ -45,13 +44,11 @@ class InventoryController extends Controller
     {
         $request->validate([
             'prodact_id' => 'required',
-            'quantity' => 'required',
+            'variationoption_id' => 'required',
         ]);
         inventory::insert([
             'prodact_id'=> $request->prodact_id,
-            'color_id'=> $request->color_id,
-            'size_id'=> $request->size_id,
-            'quantity'=> $request->quantity,
+            'variationoption_id'=> $request->variationoption_id,
             'created_at'=>Carbon::now(),
         ]);
 

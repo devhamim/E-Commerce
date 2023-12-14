@@ -32,14 +32,20 @@ class VariationOptionController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'option_name' => 'required',
-        ]);
-        VariationOption::insert([
-            'variation_id' =>$request->variation_id,
-            'option_name' =>$request->option_name,
-        ]);
-        return back()->with('succ', 'Variation Option Added...');
+        // $variotionoptions = $request->option_name;
+        if(VariationOption::where('option_name', $request->option_name)->where('variation_id', $request->variation_id)->first()){
+            return back()->with('error', 'You already have this variation option');
+        }
+        else{
+            $request->validate([
+                'option_name' => 'required',
+            ]);
+            VariationOption::insert([
+                'variation_id' =>$request->variation_id,
+                'option_name' =>$request->option_name,
+            ]);
+            return back()->with('succ', 'Variation Option Added...');
+        }
     }
 
     /**

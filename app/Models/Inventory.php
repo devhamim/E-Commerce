@@ -14,13 +14,8 @@ class Inventory extends Model
         return $this->belongsTo(ProductItem::class, 'prodact_id');
     }
 
-    // Color
-    function rel_to_color(){
-        return $this->belongsTo(color::class, 'color_id');
-    }
-
-    // Color
-    function rel_to_size(){
-        return $this->belongsTo(size::class, 'size_id');
+    // VariationOption
+    function rel_to_varoption(){
+        return $this->belongsTo(VariationOption::class, 'variationoption_id');
     }
 }

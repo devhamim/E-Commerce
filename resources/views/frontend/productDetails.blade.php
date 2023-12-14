@@ -23,36 +23,17 @@
                                     <!-- MAIN SLIDES -->
                                     <div class="product-image-slider">
                                         <figure class="border-radius-10">
-                                            <img src="assets/imgs/shop/product-16-2.jpg" alt="product image">
+                                            @foreach ($productitems as $productimg)
+                                                <img src="{{ asset('files/productitem') }}/{{ $productimg->product_image }}" alt="product image">
+                                            @endforeach
                                         </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="assets/imgs/shop/product-16-1.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="assets/imgs/shop/product-16-3.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="assets/imgs/shop/product-16-4.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="assets/imgs/shop/product-16-5.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="assets/imgs/shop/product-16-6.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="assets/imgs/shop/product-16-7.jpg" alt="product image">
-                                        </figure>
+
                                     </div>
                                     <!-- THUMBNAILS -->
                                     <div class="slider-nav-thumbnails pl-15 pr-15">
-                                        <div><img src="assets/imgs/shop/thumbnail-3.jpg" alt="product image"></div>
-                                        <div><img src="assets/imgs/shop/thumbnail-4.jpg" alt="product image"></div>
-                                        <div><img src="assets/imgs/shop/thumbnail-5.jpg" alt="product image"></div>
-                                        <div><img src="assets/imgs/shop/thumbnail-6.jpg" alt="product image"></div>
-                                        <div><img src="assets/imgs/shop/thumbnail-7.jpg" alt="product image"></div>
-                                        <div><img src="assets/imgs/shop/thumbnail-8.jpg" alt="product image"></div>
-                                        <div><img src="assets/imgs/shop/thumbnail-9.jpg" alt="product image"></div>
+                                        @foreach ($productitems as $productimg)
+                                            <div><img src="{{ asset('files/productitem') }}/{{ $productimg->product_image }}" alt="product image"></div>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <!-- End Gallery -->
@@ -83,14 +64,14 @@
                                     </div>
                                     <div class="clearfix product-price-cover">
                                         <div class="product-price primary-color float-left">
-                                            <ins><span class="text-brand">$120.00</span></ins>
-                                            <ins><span class="old-price font-md ml-15">$200.00</span></ins>
-                                            <span class="save-price  font-md color3 ml-15">25% Off</span>
+                                            <ins><span class="text-brand">{{ $productitems->first()->sale_price }}</span></ins>
+                                            {{-- <ins><span class="old-price font-md ml-15">$200.00</span></ins>
+                                            <span class="save-price  font-md color3 ml-15">25% Off</span> --}}
                                         </div>
                                     </div>
                                     <div class="bt-1 border-color-1 mt-15 mb-15"></div>
                                     <div class="short-desc mb-30">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi? Officia doloremque facere quia. Voluptatum, accusantium!</p>
+                                        <p>{{ $productitems->first()->rel_to_product->product_description }}</p>
                                     </div>
                                     <div class="product_sort_info font-xs mb-30">
                                         <ul>
@@ -102,30 +83,36 @@
                                     <div class="attr-detail attr-color mb-15">
                                         <strong class="mr-10">Color</strong>
                                         <ul class="list-filter color-filter">
-                                            <li><a href="#" data-color="Red"><span class="product-color-red"></span></a></li>
-                                            <li><a href="#" data-color="Yellow"><span class="product-color-yellow"></span></a></li>
-                                            <li class="active"><a href="#" data-color="White"><span class="product-color-white"></span></a></li>
-                                            <li><a href="#" data-color="Orange"><span class="product-color-orange"></span></a></li>
-                                            <li><a href="#" data-color="Cyan"><span class="product-color-cyan"></span></a></li>
-                                            <li><a href="#" data-color="Green"><span class="product-color-green"></span></a></li>
-                                            <li><a href="#" data-color="Purple"><span class="product-color-purple"></span></a></li>
+                                            @foreach ($inventoryRel as $inventory)
+                                                @if($inventory->rel_to_varoption->rel_to_variation->variation_name == 'color')
+                                                    <li>
+                                                        <input type="hidden" name="color_id">
+                                                        <a href="#" data-color="#{{ $inventory->rel_to_varoption->option_name }}"><span  style="color: #{{ $inventory->rel_to_varoption->option_name }}">{{ $inventory->rel_to_varoption->option_name }}</span></a>
+                                                    </li>
+                                                @endif
+                                            @endforeach
                                         </ul>
                                     </div>
                                     <div class="attr-detail attr-size">
                                         <strong class="mr-10">Size</strong>
                                         <ul class="list-filter size-filter font-small">
-                                            <li><a href="#">S</a></li>
-                                            <li class="active"><a href="#">M</a></li>
-                                            <li><a href="#">L</a></li>
-                                            <li><a href="#">XL</a></li>
-                                            <li><a href="#">XXL</a></li>
+                                            @foreach ($inventoryRel as $inventory)
+                                                @if($inventory->rel_to_varoption->rel_to_variation->variation_name == 'size')
+                                                    <li>
+                                                        <input type="hidden" name="size_id" value="{{ $inventory->rel_to_varoption->id }}">
+                                                        <a >{{ $inventory->rel_to_varoption->option_name }}</a>
+
+                                                    </li>
+                                                @endif
+                                            @endforeach
+
                                         </ul>
                                     </div>
                                     <div class="bt-1 border-color-1 mt-30 mb-30"></div>
                                     <div class="detail-extralink">
                                         <div class="detail-qty border radius">
                                             <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                            <span class="qty-val">1</span>
+                                            <i class="qty-val">1</i>
                                             <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
                                         </div>
                                         <div class="product-extra-link2">

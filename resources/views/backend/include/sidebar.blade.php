@@ -84,7 +84,7 @@
                 <div class="submenu">
                     <a href="{{ route('product-item.index') }}">Product Item List</a>
                     <a href="{{ route('product-item.create') }}">Add product Item</a>
-                    <a href="{{ route('color-size.index') }}">Color Size</a>
+                    {{-- <a href="{{ route('color-size.index') }}">Color Size</a> --}}
                 </div>
             </li>
             <li class="menu-item has-submenu">

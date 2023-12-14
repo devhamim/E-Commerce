@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Inventory;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductItem;
@@ -23,11 +24,23 @@ class FrontendController extends Controller
         ]);
     }
      //product_details
-    public function product_details($sku)
-    {
-        $productitems = ProductItem::where('sku',$sku)->get();
-        return view('frontend.productDetails',[
-            'productitems'=>$productitems,
-        ]);
+     public function product_details($sku)
+     {
+         $product = ProductItem::where('sku', $sku)->first();
+         if ($product) {
+             $productitems = ProductItem::where('product_id', $product->id)->get();
+             $inventoryRel = Inventory::where('prodact_id',$productitems->first()->id)->get();
+         }
+
+         return view('frontend.productDetails', [
+             'productitems' => $productitems,
+             'inventoryRel' => $inventoryRel,
+         ]);
+     }
+
+
+
+    function abouts(){
+        return view('frontend.about');
     }
 }

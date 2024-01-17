@@ -1,8 +1,11 @@
 <!DOCTYPE HTML>
 <html lang="en">
 
+<<<<<<< Updated upstream
 
 <!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-account-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jul 2023 14:54:22 GMT -->
+=======
+>>>>>>> Stashed changes
 <head>
     <meta charset="utf-8">
     <title>Evara Dashboard</title>
@@ -17,6 +20,21 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backend') }}/assets/imgs/theme/favicon.svg">
     <!-- Template CSS -->
     <link href="{{ asset('backend') }}/assets/css/main.css" rel="stylesheet" type="text/css" />
+    <!-- include summernote css/js -->
+    {{-- <script src="{{ asset('backend') }}/assets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('backend') }}/assets/js/vendors/jquery.fullscreen.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
+
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 </head>
 
 <body>
@@ -33,13 +51,17 @@
             <p class="font-xs mb-30">All rights reserved</p>
         </footer> --}}
     </main>
-    <script src="{{ asset('backend') }}/assets/js/vendors/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('backend') }}/assets/js/vendors/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('backend') }}/assets/js/vendors/jquery.fullscreen.min.js"></script>
+    {{-- <script src="{{ asset('backend') }}/assets/js/vendors/jquery-3.6.0.min.js"></script> --}}
+
     <!-- Main Script -->
     <script src="{{ asset('backend') }}/assets/js/main.js" type="text/javascript"></script>
+    @yield('script')
 </body>
 
+<<<<<<< Updated upstream
 
 <!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-account-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jul 2023 14:54:22 GMT -->
 </html>
+=======
+</html>
+>>>>>>> Stashed changes

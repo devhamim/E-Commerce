@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use App\Models\Variation;
 use App\Models\VariationOption;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class VariationOptionController extends Controller
      */
     public function index()
     {
-        $requests = VariationOption::all();
+        $requests = Service::all();
         return view('backend.variation_option.index', compact('requests'));
     }
 
@@ -23,7 +24,7 @@ class VariationOptionController extends Controller
      */
     public function create()
     {
-        $variotions = Variation::all();
+        $variotions = Service::all();
         return view('backend.variation_option.create_variation_option', compact('variotions'));
     }
 
@@ -32,6 +33,7 @@ class VariationOptionController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< Updated upstream
         $request->validate([
             'option_name' => 'required',
         ]);
@@ -40,6 +42,22 @@ class VariationOptionController extends Controller
             'option_name' =>$request->option_name,
         ]);
         return back()->with('succ', 'Variation Option Added...');
+=======
+        dd($request->all());
+        // $variotionoptions = $request->option_name;
+        if (Service::where('option_name', $request->option_name)->where('variation_id', $request->variation_id)->first()) {
+            return back()->with('error', 'You already have this variation option');
+        } else {
+            $request->validate([
+                'option_name' => 'required',
+            ]);
+            Service::insert([
+                'variation_id' => $request->variation_id,
+                'option_name' => $request->option_name,
+            ]);
+            return back()->with('succ', 'Variation Option Added...');
+        }
+>>>>>>> Stashed changes
     }
 
     /**
@@ -55,8 +73,8 @@ class VariationOptionController extends Controller
      */
     public function edit(string $id)
     {
-        $variotions = Variation::all();
-        $request = VariationOption::find($id);
+        $variotions = Service::all();
+        $request = Service::find($id);
         return view('backend.variation_option.edit_variation_option', compact('variotions', 'request'));
     }
 
@@ -68,9 +86,9 @@ class VariationOptionController extends Controller
         $request->validate([
             'option_name' => 'required',
         ]);
-        VariationOption::where('id', $id)->update([
-            'variation_id' =>$request->variation_id,
-            'option_name' =>$request->option_name,
+        Service::where('id', $id)->update([
+            'variation_id' => $request->variation_id,
+            'option_name' => $request->option_name,
         ]);
         return back()->with('succ', 'Variation Option Updated...');
     }

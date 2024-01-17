@@ -4,7 +4,8 @@
             <img src="{{ asset('backend') }}/assets/imgs/theme/logo.svg" class="logo" alt="Evara Dashboard">
         </a>
         <div>
-            <button class="btn btn-icon btn-aside-minimize"> <i class="text-muted material-icons md-menu_open"></i> </button>
+            <button class="btn btn-icon btn-aside-minimize"> <i class="text-muted material-icons md-menu_open"></i>
+            </button>
         </div>
     </div>
     <nav>
@@ -43,20 +44,24 @@
             </li>
             <li class="menu-item has-submenu">
                 <a class="menu-link" href="page-sellers-cards.html"> <i class="icon material-icons md-store"></i>
+<<<<<<< Updated upstream
                     <span class="text">Variation</span>
+=======
+                    <span class="text">Campaign Product</span>
                 </a>
                 <div class="submenu">
-                    <a href="{{ route('variation.index') }}">Variation List</a>
-                    <a href="{{ route('variation.create') }}">Create Variation</a>
+                    <a href="{{ route('campaign-product.index') }}">Campaign Product List</a>
+                    <a href="{{ route('campaign-product.create') }}">Create Campaign Product</a>
                 </div>
             </li>
             <li class="menu-item has-submenu">
                 <a class="menu-link" href="page-sellers-cards.html"> <i class="icon material-icons md-store"></i>
-                    <span class="text">Variation Option</span>
+                    <span class="text">Service</span>
+>>>>>>> Stashed changes
                 </a>
                 <div class="submenu">
-                    <a href="{{ route('variation_option.index') }}">Variation List</a>
-                    <a href="{{ route('variation_option.create') }}">Create Variation</a>
+                    <a href="{{ route('variation.index') }}">Service List</a>
+                    <a href="{{ route('variation.create') }}">Create Service</a>
                 </div>
             </li>
             <li class="menu-item has-submenu">
@@ -68,6 +73,7 @@
                     <a href="{{ route('product.create') }}">Add product</a>
                 </div>
             </li>
+<<<<<<< Updated upstream
             <li class="menu-item has-submenu">
                 <a class="menu-link" href="page-transactions-1.html"> <i class="icon material-icons md-monetization_on"></i>
                     <span class="text">Transactions</span>
@@ -119,6 +125,8 @@
                     <span class="text"> Starter page </span>
                 </a>
             </li>
+=======
+>>>>>>> Stashed changes
         </ul>
         <br>
         <br>

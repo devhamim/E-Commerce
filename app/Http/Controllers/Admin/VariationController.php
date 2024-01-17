@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ProductCategory;
+use App\Models\Service;
 use App\Models\Variation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class VariationController extends Controller
      */
     public function index()
     {
-        $requests = Variation::all();
+        $requests = Service::all();
         return view('backend.variation.index', compact('requests'));
     }
 
@@ -24,7 +25,6 @@ class VariationController extends Controller
      */
     public function create()
     {
-        $categories = ProductCategory::all();
         return view('backend.variation.create_variation', compact('categories'));
     }
 
@@ -36,9 +36,8 @@ class VariationController extends Controller
         $request->validate([
             'variation_name' => 'required',
         ]);
-        Variation::insert([
-            'category_id' => $request->category_id,
-            'variation_name' => $request->variation_name,
+        Service::insert([
+            'message'    => $request->variation_name,
             'created_at' => Carbon::now(),
         ]);
         return back()->with('succ', 'Variation Added...');
@@ -49,7 +48,7 @@ class VariationController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return back();
     }
 
     /**
@@ -57,9 +56,8 @@ class VariationController extends Controller
      */
     public function edit(string $id)
     {
-        $variation = Variation::find($id);
-        $categories = ProductCategory::all();
-        return view('backend.variation.edit_variatoin', compact('categories', 'variation'));
+        $variation = Service::find($id);
+        return view('backend.variation.edit_variatoin', compact('variation'));
     }
 
     /**
@@ -70,10 +68,9 @@ class VariationController extends Controller
         $request->validate([
             'variation_name' => 'required',
         ]);
-        Variation::where('id', $id)->update([
-            'category_id' => $request->category_id,
-            'variation_name' => $request->variation_name,
-            'updated_at' => Carbon::now(),
+        Service::where('id', $id)->update([
+            'message'     => $request->variation_name,
+            'updated_at'  => Carbon::now(),
         ]);
         return back()->with('succ', 'Variation Updated...');
     }
@@ -83,6 +80,6 @@ class VariationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        dd($id);
     }
 }

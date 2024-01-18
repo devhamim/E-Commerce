@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductPhoto;
+use App\Models\ProductService;
+use App\Models\Service;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Photo;
@@ -16,8 +19,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $requests = Product::all();
-        return view('backend.product.index', compact('requests'));
+        // $requests = Product::where('status', 1)->paginate(12);
+        return view('backend.product.index');
     }
 
     /**
@@ -25,8 +28,12 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $service = Service::all();
         $categories = ProductCategory::all();
-        return view('backend.product.create_product', compact('categories'));
+        return view('backend.product.create_product', [
+            'categories' => $categories,
+            'services'   => $service,
+        ]);
     }
 
     /**
@@ -34,21 +41,57 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
-            'product_name' => 'required',
+            'btn'               => 'required',
+            'category_id'       => 'required',
+            'product_name'      => 'required',
+            'short_description' => 'required',
+            'description'       => 'required',
+            'price'             => 'required',
+            'discount'          => 'required',
+            'stock_status'      => 'required',
+
         ]);
-        Photo::upload($request->product_image, 'files/product', $request->product_name);
-        Product::insert([
-            'category_id' =>$request->category_id,
-            'product_name' =>$request->product_name,
-            'product_description' =>$request->product_description,
-            'product_image' =>Photo::$name,
-            'seo_title' =>$request->seo_title,
-            'seo_description' =>$request->seo_description,
-            'seo_tags' =>$request->seo_tags,
-            'created_at'=>Carbon::now(),
-        ]);
-        return back()->with('succ', 'Product added...');
+
+        $product = new Product();
+        $product->category_id       = $request->category_id;
+        $product->name              = $request->product_name;
+        $product->short_description = $request->short_description;
+        $product->description       = $request->description;
+        $product->discount          = $request->discount;
+        $product->price             = $request->price;
+        $product->link              = $request->link;
+        $product->stock_status      = $request->stock_status;
+        $product->status            = $request->btn;
+        $product->seo_title         = $request->seo_title;
+        $product->seo_description   = $request->seo_description;
+        $product->seo_tags          = $request->seo_tags;
+        $product->save();
+
+        $product_id = $product->id;
+
+        $ss = null;
+
+        if ($product) {
+            foreach ($request->service as $service) {
+                $ss .= $service;
+                ProductService::insert([
+                    'product_id' => $product_id,
+                    'service_id' => $service,
+                    'created_at' => Carbon::now(),
+                ]);
+            }
+
+            foreach ($request->images as  $image) {
+                Photo::upload($image, 'files/product',  $product_id . 'PRO', [440, 440]);
+                ProductPhoto::insert([
+                    'product_id' => $product_id,
+                    'image'      => Photo::$name,
+                ]);
+            }
+        }
+        return back()->with('succ', 'Product added successfully');
     }
 
     /**
@@ -79,14 +122,14 @@ class ProductController extends Controller
         ]);
         Photo::upload($request->product_image, 'files/product', $request->product_name);
         Product::where('id', $id)->update([
-            'category_id' =>$request->category_id,
-            'product_name' =>$request->product_name,
-            'product_description' =>$request->product_description,
-            'product_image' =>Photo::$name,
-            'seo_title' =>$request->seo_title,
-            'seo_description' =>$request->seo_description,
-            'seo_tags' =>$request->seo_tags,
-            'created_at'=>Carbon::now(),
+            'category_id' => $request->category_id,
+            'product_name' => $request->product_name,
+            'product_description' => $request->product_description,
+            'product_image' => Photo::$name,
+            'seo_title' => $request->seo_title,
+            'seo_description' => $request->seo_description,
+            'seo_tags' => $request->seo_tags,
+            'created_at' => Carbon::now(),
         ]);
         return back()->with('succ', 'Product added...');
     }

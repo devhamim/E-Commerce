@@ -1,11 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
 
-<<<<<<< Updated upstream
-
-<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-account-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jul 2023 14:54:22 GMT -->
-=======
->>>>>>> Stashed changes
 <head>
     <meta charset="utf-8">
     <title>Evara Dashboard</title>
@@ -58,10 +53,4 @@
     @yield('script')
 </body>
 
-<<<<<<< Updated upstream
-
-<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-account-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jul 2023 14:54:22 GMT -->
 </html>
-=======
-</html>
->>>>>>> Stashed changes

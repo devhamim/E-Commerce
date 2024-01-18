@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
 use App\Models\ProductCategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -17,7 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = ProductCategory::all();
-       return view('backend.category.index', compact('categories'));
+        return view('backend.category.index', compact('categories'));
     }
 
     /**
@@ -38,12 +37,12 @@ class CategoryController extends Controller
         ]);
         Photo::upload($request->category_image, 'files/category', $request->category_name);
         ProductCategory::insert([
-            'category_name' =>$request->category_name,
-            'category_image' =>Photo::$name,
-            'seo_title' =>$request->seo_title,
-            'seo_description' =>$request->seo_description,
-            'seo_tags' =>$request->seo_tags,
-            'created_at'=>Carbon::now(),
+            'category_name' => $request->category_name,
+            'category_image' => Photo::$name,
+            'seo_title' => $request->seo_title,
+            'seo_description' => $request->seo_description,
+            'seo_tags' => $request->seo_tags,
+            'created_at' => Carbon::now(),
         ]);
         return back()->with('succ', 'Category added...');
     }
@@ -73,17 +72,16 @@ class CategoryController extends Controller
         $request->validate([
             'category_name' => 'required|unique:product_categories|max:255',
         ]);
-            Photo::upload($request->category_image, 'files/category', $request->category_name);
-            ProductCategory::where('id', $id)->update([
-            'category_name' =>$request->category_name,
-            'category_image' =>Photo::$name,
-            'seo_title' =>$request->seo_title,
-            'seo_description' =>$request->seo_description,
-            'seo_tags' =>$request->seo_tags,
-            'updated_at'=>Carbon::now(),
+        Photo::upload($request->category_image, 'files/category', $request->category_name);
+        ProductCategory::where('id', $id)->update([
+            'category_name' => $request->category_name,
+            'category_image' => Photo::$name,
+            'seo_title' => $request->seo_title,
+            'seo_description' => $request->seo_description,
+            'seo_tags' => $request->seo_tags,
+            'updated_at' => Carbon::now(),
         ]);
         return back();
-
     }
 
     /**
@@ -91,8 +89,7 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $category= ProductCategory::find($id);
+        $category = ProductCategory::find($id);
         return 'sdf';
-
     }
 }

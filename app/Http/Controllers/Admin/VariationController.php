@@ -25,7 +25,7 @@ class VariationController extends Controller
      */
     public function create()
     {
-        return view('backend.variation.create_variation', compact('categories'));
+        return view('backend.variation.create_variation');
     }
 
     /**

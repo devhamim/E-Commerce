@@ -19,7 +19,6 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // $requests = Product::where('status', 1)->paginate(12);
         return view('backend.product.index');
     }
 
@@ -107,9 +106,10 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
+        $services = Service::all();
         $request = Product::find($id);
         $categories = ProductCategory::all();
-        return view('backend.product.edit_product', compact('request', 'categories'));
+        return view('backend.product.edit_product', compact('request', 'categories', 'services'));
     }
 
     /**
@@ -118,20 +118,35 @@ class ProductController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'product_name' => 'required',
+            'btn'               => 'required',
+            'category_id'       => 'required',
+            'product_name'      => 'required',
+            'short_description' => 'required',
+            'description'       => 'required',
+            'price'             => 'required',
+            'discount'          => 'required',
+            'stock_status'      => 'required',
+
         ]);
-        Photo::upload($request->product_image, 'files/product', $request->product_name);
-        Product::where('id', $id)->update([
-            'category_id' => $request->category_id,
-            'product_name' => $request->product_name,
-            'product_description' => $request->product_description,
-            'product_image' => Photo::$name,
-            'seo_title' => $request->seo_title,
-            'seo_description' => $request->seo_description,
-            'seo_tags' => $request->seo_tags,
-            'created_at' => Carbon::now(),
-        ]);
-        return back()->with('succ', 'Product added...');
+
+
+        $product = Product::find($id);
+        $product->category_id       = $request->category_id;
+        $product->name              = $request->product_name;
+        $product->short_description = $request->short_description;
+        $product->description       = $request->description;
+        $product->discount          = $request->discount;
+        $product->price             = $request->price;
+        $product->link              = $request->link;
+        $product->stock_status      = $request->stock_status;
+        $product->status            = $request->btn;
+        $product->seo_title         = $request->seo_title;
+        $product->seo_description   = $request->seo_description;
+        $product->seo_tags          = $request->seo_tags;
+        $product->save();
+
+
+        return back()->with('succ', 'Update Successfully');
     }
 
     /**
